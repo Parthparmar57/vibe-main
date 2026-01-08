@@ -3,6 +3,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Palette, Megaphone, Database, Briefcase, Cpu, ArrowRight } from 'lucide-react';
 
+interface RolesProps {
+  onExplore?: () => void;
+}
+
 const roleCategories = [
   { icon: Code, title: "Engineering", count: "140+ Roles", color: "#FF6B00" },
   { icon: Palette, title: "Design", count: "85+ Roles", color: "#8B5CF6" },
@@ -12,7 +16,7 @@ const roleCategories = [
   { icon: Cpu, title: "Product", count: "30+ Roles", color: "#EF4444" },
 ];
 
-export const Roles: React.FC = () => {
+export const Roles: React.FC<RolesProps> = ({ onExplore }) => {
   return (
     <section id="roles" className="py-24 px-6 bg-slate-50 relative overflow-hidden">
       {/* Subtle Background Ambient Glow */}
@@ -46,6 +50,7 @@ export const Roles: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -10 }}
+              onClick={onExplore}
               className="bg-white p-5 md:p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/40 text-center flex flex-col items-center group cursor-pointer hover:border-[#FF6B00]/20 hover:shadow-2xl hover:shadow-[#FF6B00]/5 transition-all duration-500"
             >
               {/* Icon Wrapper with Layered Hover Effects */}

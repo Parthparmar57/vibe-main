@@ -10,6 +10,7 @@ import { HowItWorks } from './components/HowItWorks';
 import { AboutUs } from './components/AboutUs';
 import { FAQ } from './components/FAQ';
 import { FooterCTA } from './components/FooterCTA';
+import { Footer } from './components/Footer';
 import { Login } from './components/Auth/Login';
 import { StudentCreateAccount } from './components/Auth/StudentCreateAccount';
 import { FacultyCreateAccount } from './components/Auth/FacultyCreateAccount';
@@ -44,7 +45,7 @@ const App: React.FC = () => {
             <PainPoints />
             <WhyVibe />
             <Solution />
-            <Roles />
+            <Roles onExplore={() => setView('login')} />
             <HowItWorks />
             <AboutUs />
             <FooterCTA onJoin={() => setView('role-selector')} />
@@ -60,11 +61,7 @@ const App: React.FC = () => {
       <main>
         {renderContent()}
       </main>
-      {view === 'landing' && (
-        <footer className="py-8 px-6 text-center text-slate-400 text-sm border-t border-slate-100 bg-white">
-          <p>&copy; {new Date().getFullYear()} VIBE Technologies Inc. Built for students, by students.</p>
-        </footer>
-      )}
+      {view === 'landing' && <Footer setView={setView} />}
     </div>
   );
 };
